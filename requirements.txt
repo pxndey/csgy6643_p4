@@ -1,0 +1,23 @@
+# Core dependencies for GeoGuessr StreetCLIP project
+# Compatible with M4 Pro MacBook (MPS backend)
+
+# Deep Learning
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Transformers and CLIP
+transformers>=4.35.0
+accelerate>=0.25.0
+
+# Image processing
+Pillow>=10.0.0
+
+
+# Progress bars
+tqdm>=4.65.0
+
+# Experiment tracking (optional)
+wandb>=0.16.0
+
+# Testing
+pytest>=7.4.0
