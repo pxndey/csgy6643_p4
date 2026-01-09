@@ -129,11 +129,13 @@ def main():
         print(f"Error: Model not found at {MODEL_PATH}")
         print("Please train the model first using train_geoguessr.py")
         return
-    
-    # Load state mapping
+        
     state_df = pd.read_csv(STATE_MAPPING_CSV)
     state_mapping = dict(zip(state_df['state_idx'], state_df['state']))
-    num_states = len(state_mapping)
+
+    # IMPORTANT: Use same num_states as training (50, not 33)
+    num_states = 50  # Must match training
+    print(f"Using num_states: {num_states}")
     
     # Load StreetCLIP processor (needed for image preprocessing)
     print("Loading StreetCLIP processor...")
@@ -153,7 +155,7 @@ def main():
     
     # Load trained weights
     print(f"Loading model weights from {MODEL_PATH}...")
-    checkpoint = torch.load(MODEL_PATH, map_location=device)
+    checkpoint = torch.load(MODEL_PATH, map_location=device, weights_only=False)
     model.load_state_dict(checkpoint['model_state_dict'])
     model = model.to(device)
     model.eval()
