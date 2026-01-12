@@ -77,7 +77,7 @@ kaggle_dataset/
 
 ### Training
 ```bash
-python train.py
+python train_geoguesser.py
 ```
 
 ### Configuration
